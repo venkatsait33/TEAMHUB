@@ -22,18 +22,18 @@ const Sidebar = ({ activeMenu, setActiveMenu, setIsSidebarOpen }) => {
     },
     {
       icon: <NotebookTabs />,
-      title: "Leaves",
+      title: "Request Leave",
     },
     {
       icon: <ClipboardCheck />,
-      title: "Payslips",
+      title: "My Payslips",
     },
   ];
 
   const handleMenuClick = (item) => {
     setActiveMenu(item);
 
-    // 👇 Close sidebar if on small screens
+    //  Close sidebar if on small screens
     if (window.innerWidth < 768) {
       setIsSidebarOpen(false);
     }

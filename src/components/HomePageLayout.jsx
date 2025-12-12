@@ -26,20 +26,20 @@ const HomePageLayout = () => {
         return <EmployeeAttendanceClock />;
       case "Attendance":
         return <Attendance />;
-      case "Leaves":
+      case "Request Leave":
         return <LeaveManagement />;
-      case "Payslips":
+      case "My Payslips":
         return <Payslip />;
 
       default:
-        return <HrDashboard />;
+        return <EmployeeDashboard />;
     }
   };
   return (
     <div>
       {" "}
-      <div className="flex mt-[61px]  w-full mx-auto h-full">
-        <div className="p-1  md:flex-1 ">
+      <div className="flex mt-[65px]  w-full mx-auto h-full">
+        <div className="p-1 md:flex-1 ">
           <div className="">
             {isSidebarOpen ? (
               <>
@@ -70,7 +70,7 @@ const HomePageLayout = () => {
           <div
             className={`fixed z-10 max-sm:top-16 left-0  max-sm:bg-base-300  h-full max-sm:w-[200px] shadow-md transform transition-transform duration-300 ease-in-out
                 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-                 md:translate-x-0 w-[20%]   `}
+                 md:translate-x-0 lg:w-[20%]   `}
           >
             <Sidebar
               activeMenu={activeMenu}
@@ -79,7 +79,7 @@ const HomePageLayout = () => {
             />
           </div>
         </div>
-        <div className="relative flex-4 overflow-y-auto">
+        <div className="relative md:flex-3 lg:flex-4 overflow-y-auto">
           {loading ? (
             <div className="flex items-center justify-center h-full">
               <span className="loading loading-spinner loading-xl"></span>
