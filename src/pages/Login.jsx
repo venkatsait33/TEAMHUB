@@ -17,7 +17,7 @@ const Login = () => {
               <div className=" flex flex-col justify-center items-center mx-auto">
                 <picture>
                   <img
-                    src="/src/assets/teamhub-logo-vfl_EB37.png"
+                    src="/logo.png"
                     alt=""
                     className=" w-30 h-30 object-contain"
                   />
