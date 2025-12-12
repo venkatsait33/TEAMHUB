@@ -8,8 +8,8 @@ const App = () => {
   return (
     <div className=" container mx-auto">
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" default element={<Login />} />
+        <Route path="/dashboard" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </div>
