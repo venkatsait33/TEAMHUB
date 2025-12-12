@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
   const handleSubmit = () => {
     alert("Login Successful");
-    navigate("/dashboard");
+    navigate("dashboard");
   };
   return (
     <MotionDiv delay={0.1}>
