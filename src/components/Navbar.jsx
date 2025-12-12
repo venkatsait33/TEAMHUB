@@ -10,7 +10,7 @@ const Navbar = () => {
           <div className="flex-1">
             <div className="flex gap-2 items-center">
               <img
-                src="/src/assets/teamhub-logo-vfl_EB37.png"
+                src="/logo.png"
                 alt="logo"
                 className="w-10 h-10 rounded-lg shadow-lg object-contain"
               />
