@@ -21,7 +21,7 @@ const ProfilePage = () => {
           </MotionDiv>
         </div>
 
-        <div className="flex gap-3 mt-8">
+        <div className="flex max-sm:flex-col max-md:flex-col gap-3 mt-8 w-full">
           <MotionDiv delay={0.2}>
             <div className="shadow-md rounded-md p-3 flex-1 ">
               <div className="flex justify-center gap-3 items-center mx-auto flex-col">
@@ -66,16 +66,16 @@ const ProfilePage = () => {
             </div>
           </MotionDiv>
           <MotionDiv delay={0.2}>
-            <div className="flex-2 p-4 shadow-md rounded-md">
-              <div className="space-y-4">
-                <div className="collapse bg-base-100 border border-base-300 collapse-arrow">
+            <div className="flex-2 p-4 shadow-md rounded-md w-full">
+              <div className="space-y-4 w-full">
+                <div className="collapse bg-base-100 max-w-full border border-base-300 collapse-arrow">
                   <input
                     type="checkbox"
                     checked={isOpen}
                     onChange={() => setIsOpen(!isOpen)}
                   />
 
-                  <div className="collapse-title font-semibold text-xl bg-base-200">
+                  <div className="collapse-title w-full font-semibold text-xl bg-base-200">
                     Personal Details
                   </div>
 

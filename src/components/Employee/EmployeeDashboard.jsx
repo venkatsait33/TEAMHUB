@@ -1,7 +1,16 @@
 import { Calendar, CircleCheck, Clock, StarIcon, Wallet } from "lucide-react";
 import MotionDiv from "../../utils/MotionDiv";
+import { useEmployeeTime } from "../../context/employeeTimeContext";
 
 const EmployeeDashboard = () => {
+  const {
+    clockInTime,
+    clockOutTime,
+    workingTime,
+    handleClockIn,
+    handleClockOut,
+    formatTime,
+  } = useEmployeeTime();
   return (
     <div className=" flex flex-col gap-3 p-4 ">
       <MotionDiv delay={0.1}>
@@ -29,18 +38,23 @@ const EmployeeDashboard = () => {
           <div className="flex justify-between items-center gap-3">
             <div className=" border-2 rounded-lg p-2 bg-gradient-to-r from-indigo-200 w-full ">
               <p>Login Time</p>
-              <span>09:00:00</span>
+              <span> {formatTime(clockInTime)}</span>
             </div>
             <div className=" border-2 rounded-lg p-2 bg-gradient-to-r from-indigo-200 w-full ">
               <p>Logout Time</p>
-              <span>--:--</span>
+              <span> {formatTime(clockOutTime)}</span>
             </div>
           </div>
 
           <div className=" border-2 rounded-lg p-2 bg-gradient-to-r from-indigo-200 w-full ">
             <p className="text-base">Status</p>
-            <h1 className=" text-2xl font-semibold">Present</h1>
-            <span className="label text-sm">Login Recorded</span>
+            <h1 className=" text-2xl font-semibold">
+              {clockInTime && !clockOutTime
+                ? "Working"
+                : clockOutTime
+                ? "Completed"
+                : "Not Started"}
+            </h1>
           </div>
         </div>
       </MotionDiv>
