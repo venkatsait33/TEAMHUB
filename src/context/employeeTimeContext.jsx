@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const EmployeeTimeContext = createContext(null);
 
@@ -6,6 +7,7 @@ export const EmployeeTimeProvider = ({ children }) => {
   const STORAGE_KEYS = {
     CLOCK_IN: "clockInTime",
     CLOCK_OUT: "clockOutTime",
+    LAST_DATE: "lastAttendanceDate",
   };
 
   const [time, setTime] = useState(new Date());
@@ -13,13 +15,37 @@ export const EmployeeTimeProvider = ({ children }) => {
   const [clockOutTime, setClockOutTime] = useState(null);
   const [workingTime, setWorkingTime] = useState(0);
 
+  const getTodayDate = () => {
+    return new Date().toISOString().split("T")[0]; // YYYY-MM-DD
+  };
+
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
 
+  const resetAttendance = () => {
+    setClockInTime(null);
+    setClockOutTime(null);
+    setWorkingTime(0);
+
+    localStorage.removeItem(STORAGE_KEYS.CLOCK_IN);
+    localStorage.removeItem(STORAGE_KEYS.CLOCK_OUT);
+    localStorage.setItem(STORAGE_KEYS.LAST_DATE, getTodayDate());
+  };
+
   /* ---------------- Restore from localStorage ---------------- */
   useEffect(() => {
+    const today = getTodayDate();
+    const lastDate = localStorage.getItem(STORAGE_KEYS.LAST_DATE);
+
+    // 🔁 Reset if day changed
+    if (lastDate && lastDate !== today) {
+      resetAttendance();
+      return;
+    }
+
+    // Restore attendance
     const storedClockIn = localStorage.getItem(STORAGE_KEYS.CLOCK_IN);
     const storedClockOut = localStorage.getItem(STORAGE_KEYS.CLOCK_OUT);
 
@@ -29,6 +55,11 @@ export const EmployeeTimeProvider = ({ children }) => {
 
     if (storedClockOut) {
       setClockOutTime(new Date(Number(storedClockOut)));
+    }
+
+    // Save today's date if missing
+    if (!lastDate) {
+      localStorage.setItem(STORAGE_KEYS.LAST_DATE, today);
     }
   }, []);
 
@@ -57,14 +88,17 @@ export const EmployeeTimeProvider = ({ children }) => {
     setClockInTime(now);
     setClockOutTime(null);
     setWorkingTime(0);
+    toast.success("Clock In Successful");
 
     localStorage.setItem(STORAGE_KEYS.CLOCK_IN, now.getTime());
     localStorage.removeItem(STORAGE_KEYS.CLOCK_OUT);
+    localStorage.setItem(STORAGE_KEYS.LAST_DATE, getTodayDate());
   };
 
   const handleClockOut = () => {
     const now = new Date();
     setClockOutTime(now);
+    toast.success("Clock Out Successful");
 
     localStorage.setItem(STORAGE_KEYS.CLOCK_OUT, now.getTime());
   };

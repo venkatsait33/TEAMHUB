@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import MotionDiv from "../../utils/MotionDiv";
 import { useEmployeeTime } from "../../context/employeeTimeContext";
+import RaiseRequestForAttendance from "./RaiseRequestForAttendance";
 
 const EmployeeAttendanceClock = () => {
   const {
@@ -50,45 +51,62 @@ const EmployeeAttendanceClock = () => {
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-6 p-4">
         {/* Clock Card */}
         <MotionDiv delay={0.2}>
-          <div className="flex bg-blue-400/90 flex-col border-2 shadow-xl p-4 rounded-lg h-[50%]  justify-center items-center mx-auto gap-8">
-            <div className="flex justify-between w-full">
-              <div>
-                <p className="font-semibold text-2xl">Current Time & Date</p>
-                <span className="label">{formattedDate}</span>
+          <div className="flex flex-col gap-4">
+            <div className="flex bg-blue-400/90 flex-col border-2 shadow-xl p-4 rounded-lg h-[50%]  justify-center items-center mx-auto gap-8 w-full">
+              <div className="flex justify-between w-full">
+                <div>
+                  <p className="font-semibold text-2xl">Current Time & Date</p>
+                  <span className="label">{formattedDate}</span>
+                </div>
+                <div className=" btn btn-outline  btn-circle">
+                  {" "}
+                  <Clock1 size={28} className=" text-base-300" />
+                </div>
               </div>
-              <div className=" btn btn-outline  btn-circle">
-                {" "}
-                <Clock1 size={28} className=" text-base-300" />
+
+              <div className="text-4xl font-bold text-center">
+                {time.toLocaleTimeString("en-US")}
+              </div>
+              <p>
+                {clockInTime && !clockOutTime
+                  ? "Working"
+                  : clockOutTime
+                  ? "Completed"
+                  : "Not Started"}
+              </p>
+
+              <div className="flex justify-between w-full">
+                <button
+                  className="btn btn-outline"
+                  onClick={handleClockIn}
+                  disabled={!!clockInTime}
+                >
+                  <ArrowRightFromLine /> Clock In
+                </button>
+
+                <button
+                  className="btn btn-outline"
+                  onClick={handleClockOut}
+                  disabled={!clockInTime || !!clockOutTime}
+                >
+                  <ArrowLeftToLine /> Clock Out
+                </button>
               </div>
             </div>
-
-            <div className="text-4xl font-bold text-center">
-              {time.toLocaleTimeString("en-US")}
-            </div>
-            <p>
-              {clockInTime && !clockOutTime
-                ? "Working"
-                : clockOutTime
-                ? "Completed"
-                : "Not Started"}
-            </p>
-
-            <div className="flex justify-between w-full">
+            <div>
               <button
-                className="btn btn-outline"
-                onClick={handleClockIn}
-                disabled={!!clockInTime}
+                className="btn"
+                onClick={() =>
+                  document.getElementById("my_modal_1").showModal()
+                }
               >
-                <ArrowRightFromLine /> Clock In
+                Raise Request For Attendance
               </button>
-
-              <button
-                className="btn btn-outline"
-                onClick={handleClockOut}
-                disabled={!clockInTime || !!clockOutTime}
-              >
-                <ArrowLeftToLine /> Clock Out
-              </button>
+              <dialog id="my_modal_1" className="modal">
+                <div className="modal-box">
+                  <RaiseRequestForAttendance />
+                </div>
+              </dialog>
             </div>
           </div>
         </MotionDiv>
