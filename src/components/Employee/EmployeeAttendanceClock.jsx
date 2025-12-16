@@ -95,12 +95,12 @@ const EmployeeAttendanceClock = () => {
             </div>
             <div>
               <button
-                className="btn"
+                className="btn btn-primary btn-lg"
                 onClick={() =>
                   document.getElementById("my_modal_1").showModal()
                 }
               >
-                Raise Request For Attendance
+                Raise Request For Attendance Query
               </button>
               <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
