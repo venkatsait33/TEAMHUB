@@ -1,4 +1,4 @@
-import { Bell, Moon, Sun } from "lucide-react";
+import { ArrowRightFromLine, Bell, Moon, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 import MotionDiv from "../utils/MotionDiv.jsx";
 
@@ -25,7 +25,7 @@ const Navbar = () => {
           <div className="flex-none ">
             <div className="flex space-x-3">
               <div>
-                <label className="swap swap-rotate">
+                <label className="swap swap-rotate mt-1">
                   {/* this hidden checkbox controls the state */}
                   <input
                     type="checkbox"
@@ -34,11 +34,11 @@ const Navbar = () => {
                   />
 
                   {/* sun icon */}
-                  <Sun size={20} className="swap-off h-10 w-10 fill-current" />
+                  <Sun className="swap-off h-8 w-8 fill-current" />
 
                   {/* moon icon */}
 
-                  <Moon size={20} className="swap-on h-10 w-10 fill-current" />
+                  <Moon className="swap-on h-8 w-8 fill-current" />
                 </label>
               </div>
               <div className="dropdown dropdown-end">
@@ -63,19 +63,27 @@ const Navbar = () => {
                   </div>
                 </div>
               </div>
-              <div className="dropdown dropdown-end">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
-                >
-                  <div className="w-10 rounded-full">
-                    <img
-                      alt="Tailwind CSS Navbar component"
-                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                    />
-                  </div>
+              <div>
+                <div className=" ">
+                  <Link
+                    to="/profile"
+                    className="flex border-l pl-2 border-gray-300 justify-between items-center gap-3 "
+                  >
+                    <figure className="w-12 cursor-pointer">
+                      <img
+                        alt="Tailwind CSS Navbar component"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                        className="rounded-full p-1"
+                      />
+                    </figure>
+                    <div>
+                      <h1 className=" font-semibold">User Name</h1>
+                      <span className="label">Role</span>
+                    </div>
+                  </Link>
                 </div>
+              </div>
+              <div className="dropdown dropdown-end">
                 <ul
                   tabIndex="-1"
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
@@ -89,10 +97,12 @@ const Navbar = () => {
                   <li>
                     <a>Settings</a>
                   </li>
-                  <li>
-                    <Link to="/">Logout</Link>
-                  </li>
                 </ul>
+              </div>
+              <div className="btn btn-error btn-outline">
+                <Link to="/" className="flex items-center gap-3">
+                  <ArrowRightFromLine /> Logout
+                </Link>
               </div>
             </div>
           </div>
