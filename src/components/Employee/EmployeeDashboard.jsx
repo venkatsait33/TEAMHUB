@@ -1,16 +1,11 @@
 import { Calendar, CircleCheck, Clock, StarIcon, Wallet } from "lucide-react";
 import MotionDiv from "../../utils/MotionDiv";
 import { useEmployeeTime } from "../../context/employeeTimeContext";
+import DashboardChart from "./DashboardChart";
+import PerformanceChart from "./PerformanceChart";
 
 const EmployeeDashboard = () => {
-  const {
-    clockInTime,
-    clockOutTime,
-    workingTime,
-    handleClockIn,
-    handleClockOut,
-    formatTime,
-  } = useEmployeeTime();
+  const { clockInTime, clockOutTime, formatTime } = useEmployeeTime();
   return (
     <div className=" flex flex-col gap-3 p-4 ">
       <MotionDiv delay={0.1}>
@@ -96,6 +91,17 @@ const EmployeeDashboard = () => {
             <div className=" btn bg-violet-500 p-2   hover:scale-105 hover:rotate-10 transform transition-all duration-300">
               <Wallet size={30} />
             </div>
+          </div>
+        </div>
+      </MotionDiv>
+
+      <MotionDiv delay={0.4}>
+        <div className="flex max-sm:flex-col md:justify-between w-full items-center gap-3">
+          <div className="w-full">
+            <DashboardChart />
+          </div>
+          <div className="w-full">
+            <PerformanceChart />
           </div>
         </div>
       </MotionDiv>
