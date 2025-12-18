@@ -3,8 +3,8 @@ import {
   ClipboardCheck,
   LayoutGrid,
   NotebookTabs,
+  TrendingUp,
 } from "lucide-react";
-import React from "react";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -31,6 +31,7 @@ const Sidebar = ({ activeMenu, setActiveMenu, setIsSidebarOpen }) => {
     { icon: <LayoutGrid />, title: "Dashboard" },
     { icon: <ClipboardCheck />, title: "Clock In/Out" },
     { icon: <Calendar />, title: "Attendance" },
+    { icon: <TrendingUp />, title: "My Performance" },
     { icon: <NotebookTabs />, title: "Request Leave" },
     { icon: <ClipboardCheck />, title: "My Payslips" },
   ];

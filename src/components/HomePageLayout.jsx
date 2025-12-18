@@ -6,6 +6,7 @@ import LeaveManagement from "./Employee/LeaveManagement";
 import { Menu, SquareX } from "lucide-react";
 import Sidebar from "./Sidebar";
 import Payslip from "./Employee/Payslip";
+import MyPerformancePage from "./Employee/MyPerformancePage";
 
 const HomePageLayout = () => {
   const [loading, setLoading] = useState(false);
@@ -26,6 +27,8 @@ const HomePageLayout = () => {
         return <EmployeeAttendanceClock />;
       case "Attendance":
         return <Attendance />;
+      case "My Performance":
+        return <MyPerformancePage />;
       case "Request Leave":
         return <LeaveManagement />;
       case "My Payslips":
