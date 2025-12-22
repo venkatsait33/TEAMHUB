@@ -41,28 +41,28 @@ const HomePageLayout = () => {
   return (
     <div>
       {" "}
-      <div className="flex mt-[65px]  w-full mx-auto h-full">
+      <div className="flex mt-[65px] scroll-smooth  w-full mx-auto h-full">
         <div className="p-1 md:flex-1 ">
           <div className="">
             {isSidebarOpen ? (
               <>
-                <div className="absolute z-50 transition-transform duration-300 transform top-16 left-40 md:hidden">
+                <div className=" fixed z-50 transition-transform duration-300 transform top-18 left-38 md:hidden">
                   <button
-                    className="p-2 text-white btn bg-blue-600 rounded"
+                    className="p-2 text-white btn bg-blue-500 rounded"
                     onClick={() => setIsSidebarOpen(false)}
                   >
-                    <SquareX size={24} />
+                    <SquareX size={26} />
                   </button>
                 </div>
               </>
             ) : (
               <>
-                <div className="absolute z-50 top-16 left-2 md:hidden">
+                <div className="fixed z-50 top-18 left-2 md:hidden">
                   <button
-                    className="p-2 text-white bg-blue-600 rounded"
+                    className="p-2 text-white bg-blue-500 rounded"
                     onClick={() => setIsSidebarOpen(true)}
                   >
-                    <Menu size={24} />
+                    <Menu size={26} />
                   </button>
                 </div>
               </>
@@ -71,7 +71,7 @@ const HomePageLayout = () => {
 
           {/* Sidebar */}
           <div
-            className={`fixed z-10 max-sm:top-16 left-0  max-sm:bg-base-300  h-full max-sm:w-[200px] shadow-md transform transition-transform duration-300 ease-in-out
+            className={`fixed z-10 max-sm:top-16 left-0  max-sm:bg-base-300  h-full max-sm:w-[230px] shadow-md transform transition-transform duration-300 ease-in-out
                 ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
                  md:translate-x-0 lg:w-[20%]   `}
           >
@@ -82,7 +82,7 @@ const HomePageLayout = () => {
             />
           </div>
         </div>
-        <div className="relative md:flex-3 lg:flex-4 overflow-y-auto">
+        <div className="relative w-full md:flex-3 lg:flex-4 overflow-y-auto">
           {loading ? (
             <div className="flex items-center justify-center h-full">
               <span className="loading loading-spinner loading-xl"></span>

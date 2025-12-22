@@ -38,10 +38,10 @@ const EmployeeAttendanceClock = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3 p-4">
+    <div className="flex flex-col gap-3 p-4 max-sm:mt-10">
       <MotionDiv delay={0.1}>
         <div>
-          <h1 className="text-2xl font-semibold lg:text-4xl">
+          <h1 className="text-2xl font-bold lg:text-4xl">
             Clock In / Clock Out
           </h1>
           <span className="label">Track Your Daily Working Hours</span>
@@ -52,7 +52,7 @@ const EmployeeAttendanceClock = () => {
         {/* Clock Card */}
         <MotionDiv delay={0.2}>
           <div className="flex flex-col gap-4">
-            <div className="flex bg-blue-400/90 flex-col border-2 shadow-xl p-4 rounded-lg h-[50%]  justify-center items-center mx-auto gap-8 w-full">
+            <div className="flex bg-blue-400/90 flex-col border-2 shadow-md p-4 rounded-lg h-[50%]  justify-center items-center mx-auto gap-8 w-full">
               <div className="flex justify-between w-full">
                 <div>
                   <p className="font-semibold text-2xl">Current Time & Date</p>
@@ -113,84 +113,86 @@ const EmployeeAttendanceClock = () => {
 
         {/* Summary */}
         <MotionDiv delay={0.2}>
-          <div className="flex flex-col gap-6 shadow-lg p-4 rounded-lg">
-            <p>Today's Summary</p>
-            <div className="flex items-center gap-3 shadow-md  rounded-xl bg-base-100 p-2">
-              <div className=" btn btn-circle  text-green-600 bg-green-100">
-                <ArrowRightFromLine />
+          <div className="flex gap-3 flex-col">
+            <div className="flex flex-col gap-6 shadow-md p-4 rounded-lg">
+              <p>Today's Summary</p>
+              <div className="flex items-center gap-3 shadow-md  rounded-xl bg-base-100 p-2">
+                <div className=" btn btn-circle  text-green-600 bg-green-100">
+                  <ArrowRightFromLine />
+                </div>
+                <div>
+                  <p>Clock In</p>
+                  <span className=" font-semibold text-xl">
+                    {formatTime(clockInTime)}
+                  </span>
+                </div>
               </div>
-              <div>
-                <p>Clock In</p>
-                <span className=" font-semibold text-xl">
-                  {formatTime(clockInTime)}
-                </span>
+              <div className="flex items-center gap-3 shadow-md rounded-xl bg-base-100 p-2">
+                <div className=" btn btn-circle  text-red-600 bg-red-100">
+                  <ArrowLeftToLine />
+                </div>
+                <div>
+                  <p>Clock Out</p>
+                  <span className=" font-semibold text-xl">
+                    {formatTime(clockOutTime)}
+                  </span>
+                </div>
               </div>
+              <div className="flex items-center gap-3 shadow-md rounded-xl bg-base-100 p-2">
+                <div className=" btn btn-circle  text-blue-600 bg-blue-100">
+                  <Clock10 />
+                </div>
+                <div>
+                  <p>Working Hours</p>
+                  <span className=" font-semibold text-xl">
+                    {formatDuration(workingTime)}
+                  </span>
+                </div>
+              </div>
+              <div className="shadow-md bg-orange-100/50 text-orange-400 p-2 rounded">
+                <span className="font-bold text-xl">Status</span>
+                <p>
+                  {clockInTime && !clockOutTime
+                    ? "Working"
+                    : clockOutTime
+                    ? "Completed"
+                    : "Not Started"}
+                </p>
+              </div>{" "}
             </div>
-            <div className="flex items-center gap-3 shadow-md rounded-xl bg-base-100 p-2">
-              <div className=" btn btn-circle  text-red-600 bg-red-100">
-                <ArrowLeftToLine />
-              </div>
-              <div>
-                <p>Clock Out</p>
-                <span className=" font-semibold text-xl">
-                  {formatTime(clockOutTime)}
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 shadow-md rounded-xl bg-base-100 p-2">
-              <div className=" btn btn-circle  text-blue-600 bg-blue-100">
-                <Clock10 />
-              </div>
-              <div>
-                <p>Working Hours</p>
-                <span className=" font-semibold text-xl">
-                  {formatDuration(workingTime)}
-                </span>
-              </div>
-            </div>
-            <div className="shadow-md bg-orange-100/50 text-orange-400 p-2 rounded">
-              <span className="font-bold text-xl">Status</span>
-              <p>
-                {clockInTime && !clockOutTime
-                  ? "Working"
-                  : clockOutTime
-                  ? "Completed"
-                  : "Not Started"}
-              </p>
-            </div>{" "}
-          </div>
-          <div className="flex gap-3 flex-col shadow-lg p-4 rounded-lg">
-            <h1 className="text-2xl font-semibold">Working Hours Policy</h1>
+            <div className="flex gap-3 flex-col shadow-md p-4 rounded-lg">
+              <h1 className="text-2xl font-semibold">Working Hours Policy</h1>
 
-            <div className="flex gap-3 items-center">
-              <Calendar className="text-blue-400" />
-              <div>
-                <p className="font-medium">Standard Hours</p>
-                <span>9:00 AM - 6:00 PM (9 hours)</span>
+              <div className="flex gap-3 items-center">
+                <Calendar className="text-blue-400" />
+                <div>
+                  <p className="font-medium">Standard Hours</p>
+                  <span>9:00 AM - 6:00 PM (9 hours)</span>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-3 items-center">
-              <Clock5 className="text-green-400" />
-              <div>
-                <p className="font-medium">Grace Period</p>
-                <span>9:00 AM - 9:05 AM</span>
+              <div className="flex gap-3 items-center">
+                <Clock5 className="text-green-400" />
+                <div>
+                  <p className="font-medium">Grace Period</p>
+                  <span>9:00 AM - 9:05 AM</span>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-3 items-center">
-              <ArrowRightFromLine className="text-red-400" />
-              <div>
-                <p className="font-medium">Late Login</p>
-                <span>After 9:05 AM</span>
+              <div className="flex gap-3 items-center">
+                <ArrowRightFromLine className="text-red-400" />
+                <div>
+                  <p className="font-medium">Late Login</p>
+                  <span>After 9:05 AM</span>
+                </div>
               </div>
-            </div>
 
-            <div className="flex gap-3 items-center">
-              <SquareArrowRight className="text-red-400" />
-              <div>
-                <p className="font-medium">Early Logout</p>
-                <span>Before 6:00 PM</span>
+              <div className="flex gap-3 items-center">
+                <SquareArrowRight className="text-red-400" />
+                <div>
+                  <p className="font-medium">Early Logout</p>
+                  <span>Before 6:00 PM</span>
+                </div>
               </div>
             </div>
           </div>

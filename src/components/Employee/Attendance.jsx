@@ -4,7 +4,7 @@ import MotionDiv from "../../utils/MotionDiv";
 
 const Attendance = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 max-sm:mt-10">
       <div className="flex flex-col gap-6">
         <MotionDiv delay={0.1}>
           <div>
@@ -15,7 +15,7 @@ const Attendance = () => {
           </div>
         </MotionDiv>
         <MotionDiv delay={0.2}>
-          <div className=" grid grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className=" grid grid-cols-3 max-sm:grid-cols-2 lg:grid-cols-6 gap-4">
             <div className="flex justify-evenly items-center gap-2 shadow-md p-2 rounded-md w-[150px]">
               <Calendar />
               <div>
@@ -85,7 +85,7 @@ const Attendance = () => {
                     <span>09:00:00 - 18:00:00</span>
                   </div>
                 </div>
-                <div className="flex space-x-3">
+                <div className="flex max-sm:flex-col space-x-3">
                   <p className=" badge badge-success font-semibold ">PRESENT</p>
                   <span className="label ">Full Day Present - </span>
                   <span className="label">Time Condition Meet </span>
@@ -111,7 +111,7 @@ const Attendance = () => {
                     <span>09:00:00 - 13:00:00</span>
                   </div>
                 </div>
-                <div className="flex space-x-3">
+                <div className="flex max-sm:flex-col space-x-3">
                   <p className=" badge badge-warning font-semibold">HALF-DAY</p>
                   <span className="label">Logout - </span>
                   <span className="label">HALF_DAY </span>

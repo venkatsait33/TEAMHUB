@@ -4,7 +4,7 @@ import MotionDiv from "../../utils/MotionDiv";
 
 const LeaveManagement = () => {
   return (
-    <div className="  p-4 ">
+    <div className="  p-4 max-sm:mt-10 ">
       <div className="flex flex-col gap-4">
         <MotionDiv delay={0.1}>
           <div>
@@ -15,7 +15,7 @@ const LeaveManagement = () => {
           </div>
         </MotionDiv>
         <MotionDiv delay={0.2}>
-          <div className=" shadow-md rounded-md p-4 w-[50%]">
+          <div className=" shadow-md rounded-md p-4 md:w-[50%] ">
             <div className="flex items-center space-x-4">
               <div className=" btn btn-md p-3 bg-blue-300">
                 <Calendar size={28} className=" text-base" />

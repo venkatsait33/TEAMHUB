@@ -2,8 +2,8 @@ const PerformanceBannerCards = () => {
   return (
     <div>
       <div>
-        <div className="flex max-sm:flex-col max-md:grid max-sm:grid-cols-2 justify-between items-center gap-3">
-          <div className="flex  gap-2 rounded-xl transition-all w-full p-4 shadow-xl">
+        <div className="flex max-sm:flex-col max-md:grid max-sm:grid-cols-1 justify-between items-center gap-3">
+          <div className="flex  gap-2 rounded-xl transition-all w-full p-4 shadow-md">
             <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,7 @@ const PerformanceBannerCards = () => {
               </div>
             </div>
           </div>
-          <div className="flex  gap-2 rounded-xl transition-all w-full p-4 shadow-xl">
+          <div className="flex  gap-2 rounded-xl transition-all w-full p-4 shadow-md">
             <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +56,7 @@ const PerformanceBannerCards = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-2 rounded-xl transition-all w-full p-4 shadow-xl">
+          <div className="flex gap-2 rounded-xl transition-all w-full p-4 shadow-md">
             <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

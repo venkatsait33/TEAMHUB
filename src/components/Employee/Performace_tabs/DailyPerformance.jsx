@@ -1,5 +1,3 @@
-import { LineChart } from "lucide-react";
-import { CartesianGrid, Line, Tooltip, XAxis } from "recharts";
 import PerformanceChart from "./PerformanceChart";
 import PerformanceCard from "./PerformanceCard";
 import PerformanceBannerCards from "./PerformanceBanarCards";
@@ -28,12 +26,12 @@ const DailyPerformance = () => {
         <div>
           <PerformanceBannerCards />
         </div>
-        <div className="p-4">
+        <div className="md:p-4">
           <PerformanceChart data={data} title="Daily Performance Trend" />
         </div>
         <div className="flex flex-col gap-3 shadow-md rounded-md p-4 bg-base-100">
           <h2 className="text-xl font-semibold">Recently Daily Performance</h2>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <PerformanceCard date="Nov 14" />
             <PerformanceCard date="Nov 13" />
             <PerformanceCard date="Nov 12" />

@@ -5,9 +5,10 @@ import DashboardChart from "./DashboardChart";
 import PerformanceChart from "./PerformanceChart";
 
 const EmployeeDashboard = () => {
-  const { clockInTime, clockOutTime, formatTime } = useEmployeeTime();
+  const { clockInTime, clockOutTime, formattedDate, formatTime } =
+    useEmployeeTime();
   return (
-    <div className=" flex flex-col gap-3 p-4 ">
+    <div className=" flex flex-col gap-3  max-sm:mt-10 p-4 ">
       <MotionDiv delay={0.1}>
         <div>
           <h1 className="text-2xl font-semibold">Welcome back, User Name!</h1>
@@ -21,7 +22,7 @@ const EmployeeDashboard = () => {
           <div className="flex justify-between items-center">
             <div>
               <h1 className=" text-2xl font-bold">Today's Status</h1>
-              <p>Thursday, December 11, 2025</p>
+              <p>{formattedDate}</p>
             </div>
             <div className="">
               <div className=" btn btn-circle btn-lg bg-transparent btn-outline  p-3">
@@ -55,8 +56,8 @@ const EmployeeDashboard = () => {
       </MotionDiv>
 
       <MotionDiv delay={0.3}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:grid-cols-4  justify-between p-4">
-          <div className="  p-4 rounded-xl shadow-2xl flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:grid-cols-4  justify-between md:p-4">
+          <div className="  p-4 rounded-xl shadow-md flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300 ">
             <div>
               <p className="">Present Days</p>
               <span className=" font-semibold text-xl">10</span>
@@ -65,7 +66,7 @@ const EmployeeDashboard = () => {
               <CircleCheck size={30} />
             </div>
           </div>
-          <div className="  p-4 rounded-xl shadow-2xl flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300  ">
+          <div className="  p-4 rounded-xl shadow-md flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300  ">
             <div>
               <p>Absent Days</p>
               <span className=" font-semibold text-xl">0</span>
@@ -74,7 +75,7 @@ const EmployeeDashboard = () => {
               <Calendar size={30} />
             </div>
           </div>
-          <div className="  p-4 rounded-xl shadow-2xl flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300 ">
+          <div className="  p-4 rounded-xl shadow-md flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300 ">
             <div>
               <p>Performance Score</p>
               <span className=" font-semibold text-xl">0/5</span>
@@ -83,7 +84,7 @@ const EmployeeDashboard = () => {
               <StarIcon size={30} />
             </div>
           </div>
-          <div className="  p-4 rounded-xl shadow-2xl flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300 ">
+          <div className="  p-4 rounded-xl shadow-md flex justify-between items-center gap-3 lg:w-[250px] hover:scale-105 transform transition-all duration-300 ">
             <div>
               <p>Month Earning</p>
               <span className=" font-semibold text-xl">₹00000</span>

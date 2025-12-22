@@ -3,7 +3,7 @@ import MotionDiv from "../../utils/MotionDiv";
 
 const Payslip = () => {
   return (
-    <div className="p-6">
+    <div className="p-6 max-sm:mt-10">
       <div className="flex flex-col gap-6">
         <MotionDiv delay={0.1}>
           <div>
