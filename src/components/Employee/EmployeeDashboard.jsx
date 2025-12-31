@@ -8,7 +8,7 @@ const EmployeeDashboard = () => {
   const { clockInTime, clockOutTime, formattedDate, formatTime } =
     useEmployeeTime();
   return (
-    <div className=" flex flex-col gap-3  max-sm:mt-10 p-4 ">
+    <div className=" flex flex-col gap-3 scroll-smooth max-sm:mt-10 p-4 ">
       <MotionDiv delay={0.1}>
         <div>
           <h1 className="text-2xl font-semibold">Welcome back, User Name!</h1>
